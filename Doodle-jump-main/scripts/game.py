@@ -13,7 +13,7 @@ class Game:
         self.player = Player(
             (240,600),
             load_image("assets","images","player.png"),
-            50,20,0.65
+            20,5,0.65
         )
         self.losed = False
 
@@ -66,6 +66,7 @@ class Game:
 
             surface.blit(score_text,score_rect)
             surface.blit(hint_text,hint_rect)
+            surface.blit(tt,tt_rect)
             
             return
         else:
@@ -88,10 +89,11 @@ class Game:
     def handle_create_platforms_event(self,platform):
         self.platforms.append(platform)
     def restart(self):
+        self.player.reset((240,600))
         self.losed = False
         self.offset_y = 0
         self.platforms = list()
         self.platform_generator.create_start_configuration()
-        self.tring +=1
+        
 
     
